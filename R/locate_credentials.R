@@ -4,7 +4,7 @@
 #' @param key An AWS Access Key ID
 #' @param secret An AWS Secret Access Key
 #' @param session_token Optionally, an AWS Security Token Service (STS) temporary Session Token
-#' @param region A character string containing the AWS region for the request. If missing, \dQuote{us-east-1} is assumed.
+#' @param region A character string containing the AWS region for the request. If missing, \dQuote{us-west-2} is assumed.
 #' @param file A character string containing a path to a centralized \samp{.aws/credentials} file.
 #' @param profile A character string specifying which profile to use from the file. By default, the profile named in \env{AWS_PROFILE} is used, otherwise the \dQuote{default} profile is used.
 #' @param default_region A character string specifying a default string to use of no user-supplied value is found.
@@ -31,7 +31,7 @@
 #'   \item the \env{AWS_DEFAULT_REGION} environment variable
 #'   \item (only on EC2 instances) a region declared in the instance metadata
 #'   \item (if a credentials file is being used) the value specified therein
-#'   \item the default value specified in \code{default_region} (i.e., \dQuote{us-east-1})
+#'   \item the default value specified in \code{default_region} (i.e., \dQuote{us-west-2})
 #' }
 #' 
 #' As such, user-supplied values of \code{region} always trump any other value.
@@ -46,7 +46,7 @@ function(
   region = NULL,
   file = Sys.getenv("AWS_SHARED_CREDENTIALS_FILE", default_credentials_file()),
   profile = Sys.getenv("AWS_PROFILE", "default"),
-  default_region = "us-east-1",
+  default_region = "us-west-2",
   verbose = getOption("verbose", FALSE)
 ) {
     
@@ -279,7 +279,7 @@ credentials_to_list <-
 function(
   cred,
   region = NULL,
-  default_region = "us-east-1",
+  default_region = "us-west-2",
   verbose = getOption("verbose", FALSE)
 ) {
     if (!is.null(cred[["AWS_ACCESS_KEY_ID"]])) {
@@ -334,7 +334,7 @@ function(
 find_region_with_failsafe <-
 function(
   region = NULL,
-  default_region = "us-east-1",
+  default_region = "us-west-2",
   verbose = getOption("verbose", FALSE),
   try_ec2 = FALSE
 ) {

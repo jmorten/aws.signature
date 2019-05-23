@@ -14,12 +14,12 @@
 #' rh <- "3511de7e95d28ecd39e9513b642aee07e54f4941150d8df8bf94b328ef7e55e2"
 #' sts <- 
 #' string_to_sign(datetime = "20110909T233600Z",
-#'                region = "us-east-1",
+#'                region = "us-west-2",
 #'                service = "iam",
 #'                request_hash = rh)
 #' identical(sts, "AWS4-HMAC-SHA256
 #' 20110909T233600Z
-#' 20110909/us-east-1/iam/aws4_request
+#' 20110909/us-west-2/iam/aws4_request
 #' 3511de7e95d28ecd39e9513b642aee07e54f4941150d8df8bf94b328ef7e55e2")
 #'
 #' @seealso \code{\link{signature_v4}}, \code{\link{signature_v4_auth}}
