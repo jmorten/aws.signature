@@ -7,7 +7,7 @@
 locate_credentials(key = NULL, secret = NULL, session_token = NULL,
   region = NULL, file = Sys.getenv("AWS_SHARED_CREDENTIALS_FILE",
   default_credentials_file()), profile = Sys.getenv("AWS_PROFILE",
-  "default"), default_region = "us-east-1",
+  "default"), default_region = "us-west-2",
   verbose = getOption("verbose", FALSE))
 }
 \arguments{
@@ -17,7 +17,7 @@ locate_credentials(key = NULL, secret = NULL, session_token = NULL,
 
 \item{session_token}{Optionally, an AWS Security Token Service (STS) temporary Session Token}
 
-\item{region}{A character string containing the AWS region for the request. If missing, \dQuote{us-east-1} is assumed.}
+\item{region}{A character string containing the AWS region for the request. If missing, \dQuote{us-west-2} is assumed.}
 
 \item{file}{A character string containing a path to a centralized \samp{.aws/credentials} file.}
 
@@ -53,7 +53,7 @@ Because region is often handled slightly differently from credentials and is req
   \item the \env{AWS_DEFAULT_REGION} environment variable
   \item (only on EC2 instances) a region declared in the instance metadata
   \item (if a credentials file is being used) the value specified therein
-  \item the default value specified in \code{default_region} (i.e., \dQuote{us-east-1})
+  \item the default value specified in \code{default_region} (i.e., \dQuote{us-west-2})
 }
 
 As such, user-supplied values of \code{region} always trump any other value.
